@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Munees K — Senior Manager, Content Operations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAF9F7;
+    --panel: #FFFFFF;
+    --ink: #1B2430;
+    --ink-soft: #55606E;
+    --line: #E4E1DA;
+    --teal: #2C5C57;
+    --teal-deep: #1D3E3A;
+    --gold: #B4913A;
+    --radius: 2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  a{color:inherit; text-decoration:none;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+
+  /* ===== Header / Nav ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,249,247,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px; max-width:1080px; margin:0 auto;
+  }
+  .nav-mark{
+    font-family:'Newsreader', serif; font-weight:600; font-size:1.15rem;
+    letter-spacing:0.01em;
+  }
+  .nav-mark span{color:var(--teal);}
+  .nav-links{display:flex; gap:28px; font-size:0.85rem; letter-spacing:0.03em;}
+  .nav-links a{color:var(--ink-soft); transition:color 0.2s;}
+  .nav-links a:hover{color:var(--teal);}
+
+  /* ===== Hero ===== */
+  .hero{
+    padding:88px 0 72px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:48px;
+    align-items:center;
+  }
+  .avatar{
+    width:132px; height:132px;
+    border-radius:50%;
+    background:linear-gradient(150deg, var(--teal) 0%, var(--teal-deep) 100%);
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-family:'Newsreader', serif; font-weight:600; font-size:2.6rem;
+    flex-shrink:0;
+    border:1px solid var(--teal-deep);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:'Newsreader', serif;
+    font-weight:600;
+    font-size:clamp(2.2rem, 5vw, 3.4rem);
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin-bottom:8px;
+  }
+  .role-line{
+    font-size:1.1rem;
+    color:var(--ink-soft);
+    margin-bottom:20px;
+  }
+  .role-line strong{color:var(--teal-deep); font-weight:600;}
+  .hero-bio{
+    max-width:56ch;
+    color:var(--ink-soft);
+    font-size:1.02rem;
+  }
+  .hero-cta{
+    display:flex; gap:14px; margin-top:28px; flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 22px;
+    font-size:0.88rem; font-weight:500;
+    border-radius:var(--radius);
+    transition:all 0.2s;
+    border:1px solid var(--teal-deep);
+  }
+  .btn-primary{background:var(--teal-deep); color:#fff;}
+  .btn-primary:hover{background:var(--teal);}
+  .btn-outline{background:transparent; color:var(--teal-deep);}
+  .btn-outline:hover{background:var(--teal-deep); color:#fff;}
+
+  /* ===== Section shared ===== */
+  section{padding:64px 0;}
+  .section-head{
+    display:flex; align-items:baseline; gap:16px; margin-bottom:36px;
+  }
+  .section-num{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--gold); letter-spacing:0.08em;
+  }
+  h2{
+    font-family:'Newsreader', serif;
+    font-weight:600;
+    font-size:1.7rem;
+    color:var(--ink);
+  }
+  .rule{flex:1; height:1px; background:var(--line);}
+
+  /* ===== Operating Stack (signature element) ===== */
+  .stack{border-bottom:1px solid var(--line);}
+  .stack-list{
+    display:flex; flex-direction:column;
+    border-top:1px solid var(--line);
+  }
+  .stack-row{
+    display:grid;
+    grid-template-columns:64px 1fr auto;
+    align-items:center;
+    gap:20px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+    transition:padding-left 0.25s ease, background 0.25s ease;
+  }
+  .stack-row:hover{
+    padding-left:12px;
+    background:linear-gradient(90deg, rgba(44,92,87,0.05), transparent);
+  }
+  .stack-index{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--gold);
+    font-size:0.8rem;
+  }
+  .stack-name{
+    font-family:'Newsreader', serif;
+    font-size:1.2rem;
+    font-weight:500;
+    color:var(--ink);
+  }
+  .stack-desc{
+    font-size:0.88rem;
+    color:var(--ink-soft);
+    max-width:38ch;
+  }
+  .stack-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    letter-spacing:0.05em;
+    text-align:right;
+    white-space:nowrap;
+  }
+
+  /* ===== Experience ===== */
+  .exp-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-left:3px solid var(--teal);
+    padding:32px;
+    border-radius:var(--radius);
+  }
+  .exp-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .exp-title{font-family:'Newsreader', serif; font-size:1.3rem; font-weight:600;}
+  .exp-org{color:var(--teal); font-weight:500; margin-top:2px;}
+  .exp-tenure{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    background:var(--bg);
+    border:1px solid var(--line);
+    padding:5px 12px;
+    border-radius:20px;
+    white-space:nowrap;
+  }
+  .exp-body{color:var(--ink-soft); font-size:0.95rem; max-width:68ch;}
+
+  /* ===== Contact ===== */
+  .contact{background:var(--teal-deep); color:#fff;}
+  .contact h2{color:#fff;}
+  .contact .section-num{color:var(--gold);}
+  .contact .rule{background:rgba(255,255,255,0.15);}
+  .contact-sub{color:rgba(255,255,255,0.72); max-width:52ch; margin-bottom:40px; font-size:1rem;}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:1px;
+    background:rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.15);
+  }
+  .contact-item{
+    background:var(--teal-deep);
+    padding:26px 24px;
+    display:flex; flex-direction:column; gap:10px;
+    transition:background 0.2s;
+  }
+  .contact-item:hover{background:#254a45;}
+  .contact-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .contact-value{font-size:1rem; font-weight:500; word-break:break-word;}
+  .contact-icon{width:20px; height:20px; opacity:0.85;}
+
+  footer{
+    text-align:center;
+    padding:28px 0;
+    font-size:0.8rem;
+    color:var(--ink-soft);
+    background:var(--bg);
+  }
+
+  @media (max-width:640px){
+    .wrap{padding:0 20px;}
+    .nav{padding:16px 20px;}
+    .nav-links{gap:16px; font-size:0.78rem;}
+    .hero{padding:56px 0 48px;}
+    .hero-grid{grid-template-columns:1fr; text-align:left;}
+    .avatar{width:96px; height:96px; font-size:2rem;}
+    .stack-row{grid-template-columns:40px 1fr; row-gap:6px;}
+    .stack-meta{grid-column:2; text-align:left;}
+    .exp-top{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="nav-mark">Munees <span>K</span></div>
+    <div class="nav-links">
+      <a href="#expertise">Expertise</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="avatar">MK</div>
+    <div>
+      <div class="eyebrow">Content Operations · Entri Software</div>
+      <h1>Munees K</h1>
+      <p class="role-line">Senior Manager, <strong>Content Operations</strong> — 7 years of experience</p>
+      <p class="hero-bio">Munees leads content operations at Entri Software, bringing together human resource management, operations, cost control, and academics into one disciplined content engine. Seven years spent building the systems that keep content teams running on time and on budget.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="mailto:munees@entri.me">Email Munees</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/muneesofficial/" target="_blank" rel="noopener">View LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stack" id="expertise">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Areas of operation</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="stack-list">
+      <div class="stack-row">
+        <span class="stack-index">HR</span>
+        <div>
+          <div class="stack-name">Human Resource Management</div>
+          <div class="stack-desc">Team structuring, hiring, and performance oversight for content teams.</div>
+        </div>
+        <span class="stack-meta">PEOPLE</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-index">OPS</span>
+        <div>
+          <div class="stack-name">Operations Management</div>
+          <div class="stack-desc">Workflow design and day-to-day delivery across content operations.</div>
+        </div>
+        <span class="stack-meta">PROCESS</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-index">COST</span>
+        <div>
+          <div class="stack-name">Cost Management</div>
+          <div class="stack-desc">Budgeting and cost control across content production.</div>
+        </div>
+        <span class="stack-meta">BUDGET</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-index">ACAD</span>
+        <div>
+          <div class="stack-name">Academics</div>
+          <div class="stack-desc">Academic content oversight and quality standards.</div>
+        </div>
+        <span class="stack-meta">CONTENT</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-index">CNT</span>
+        <div>
+          <div class="stack-name">Content Management</div>
+          <div class="stack-desc">End-to-end content operations, from planning to publishing.</div>
+        </div>
+        <span class="stack-meta">CONTENT</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Current role</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-top">
+        <div>
+          <div class="exp-title">Senior Manager, Content Operations</div>
+          <div class="exp-org">Entri Software</div>
+        </div>
+        <div class="exp-tenure">7 YEARS EXPERIENCE</div>
+      </div>
+      <p class="exp-body">Leads the content operations function at Entri Software, overseeing the people, processes, and budgets that keep content delivery on track — spanning HR, operations, cost management, and academic content.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Get in touch</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="contact-sub">Reach out directly by email or WhatsApp, or connect on LinkedIn and Instagram.</p>
+    <div class="contact-grid">
+      <a class="contact-item" href="mailto:munees@entri.me">
+        <span class="contact-label">Email</span>
+        <span class="contact-value">munees@entri.me</span>
+      </a>
+      <a class="contact-item" href="https://wa.me/917907016031" target="_blank" rel="noopener">
+        <span class="contact-label">WhatsApp</span>
+        <span class="contact-value">+91 79070 16031</span>
+      </a>
+      <a class="contact-item" href="https://www.linkedin.com/in/muneesofficial/" target="_blank" rel="noopener">
+        <span class="contact-label">LinkedIn</span>
+        <span class="contact-value">/in/muneesofficial</span>
+      </a>
+      <a class="contact-item" href="https://www.instagram.com/hiring_panikkar/" target="_blank" rel="noopener">
+        <span class="contact-label">Instagram</span>
+        <span class="contact-value">@hiring_panikkar</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Munees K — Senior Manager, Content Operations, Entri Software
+</footer>
+
+</body>
+</html>

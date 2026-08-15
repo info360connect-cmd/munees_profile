@@ -59,23 +59,53 @@
 
   /* ===== Hero ===== */
   .hero{
-    padding:88px 0 72px;
+    padding:72px 0 0;
     border-bottom:1px solid var(--line);
   }
   .hero-grid{
     display:grid;
-    grid-template-columns:auto 1fr;
-    gap:48px;
-    align-items:center;
+    grid-template-columns:minmax(280px, 380px) 1fr;
+    gap:64px;
+    align-items:end;
+    padding-bottom:56px;
   }
-  .avatar{
-    width:132px; height:132px;
-    border-radius:50%;
+  .portrait{
+    position:relative;
+    align-self:end;
+  }
+  .portrait::before{
+    content:"";
+    position:absolute;
+    top:18px; left:-18px;
+    width:100%; height:100%;
+    background:var(--teal);
+    z-index:0;
+  }
+  .portrait-frame{
+    position:relative;
+    z-index:1;
+    aspect-ratio:4/5;
+    overflow:hidden;
+    border:1px solid var(--teal-deep);
     background:linear-gradient(150deg, var(--teal) 0%, var(--teal-deep) 100%);
     display:flex; align-items:center; justify-content:center;
-    color:#fff; font-family:'Newsreader', serif; font-weight:600; font-size:2.6rem;
-    flex-shrink:0;
-    border:1px solid var(--teal-deep);
+  }
+  .portrait-frame img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+    filter:grayscale(28%) contrast(1.03);
+  }
+  .portrait-tag{
+    position:absolute;
+    left:0; bottom:0;
+    z-index:2;
+    background:var(--teal-deep);
+    color:#fff;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    padding:9px 16px;
   }
   .eyebrow{
     font-family:'IBM Plex Mono', monospace;
@@ -136,7 +166,7 @@
   }
   .rule{flex:1; height:1px; background:var(--line);}
 
-  /* ===== Operating Stack (signature element) ===== */
+  /* ===== Operating Stack ===== */
   .stack{border-bottom:1px solid var(--line);}
   .stack-list{
     display:flex; flex-direction:column;
@@ -180,7 +210,29 @@
     white-space:nowrap;
   }
 
+  /* ===== Skills & Recognition ===== */
+  .skills-block{margin-bottom:32px;}
+  .skills-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:14px;
+  }
+  .tag-row{display:flex; flex-wrap:wrap; gap:10px;}
+  .tag{
+    font-size:0.86rem;
+    padding:8px 16px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:var(--panel);
+    color:var(--ink);
+  }
+  .tag.accent{border-color:var(--teal); color:var(--teal-deep); font-weight:500;}
+
   /* ===== Experience ===== */
+  .exp-list{display:flex; flex-direction:column; gap:20px;}
   .exp-card{
     background:var(--panel);
     border:1px solid var(--line);
@@ -205,6 +257,8 @@
     white-space:nowrap;
   }
   .exp-body{color:var(--ink-soft); font-size:0.95rem; max-width:68ch;}
+  .exp-body ul{margin-top:10px; padding-left:18px;}
+  .exp-body li{margin-bottom:4px;}
 
   /* ===== Contact ===== */
   .contact{background:var(--teal-deep); color:#fff;}
@@ -234,7 +288,6 @@
     color:var(--gold);
   }
   .contact-value{font-size:1rem; font-weight:500; word-break:break-word;}
-  .contact-icon{width:20px; height:20px; opacity:0.85;}
 
   footer{
     text-align:center;
@@ -248,9 +301,10 @@
     .wrap{padding:0 20px;}
     .nav{padding:16px 20px;}
     .nav-links{gap:16px; font-size:0.78rem;}
-    .hero{padding:56px 0 48px;}
-    .hero-grid{grid-template-columns:1fr; text-align:left;}
-    .avatar{width:96px; height:96px; font-size:2rem;}
+    .hero{padding:48px 0 0;}
+    .hero-grid{grid-template-columns:1fr; text-align:left; gap:40px;}
+    .portrait{max-width:280px;}
+    .portrait::before{top:12px; left:-12px;}
     .stack-row{grid-template-columns:40px 1fr; row-gap:6px;}
     .stack-meta{grid-column:2; text-align:left;}
     .exp-top{flex-direction:column;}
@@ -272,14 +326,19 @@
 
 <section class="hero">
   <div class="wrap hero-grid">
-    <div class="avatar">MK</div>
+    <div class="portrait">
+      <div class="portrait-frame">
+        <img src="dppp.png" alt="Munees K">
+      </div>
+      <div class="portrait-tag">MK / ENTRI SOFTWARE</div>
+    </div>
     <div>
-      <div class="eyebrow">Content Operations · Entri Software</div>
+      <div class="eyebrow">Academics and Content Operations · Entri Software</div>
       <h1>Munees K</h1>
-      <p class="role-line">Senior Manager, <strong>Content Operations</strong> — 7 years of experience</p>
-      <p class="hero-bio">Munees leads content operations at Entri Software, bringing together human resource management, operations, cost control, and academics into one disciplined content engine. Seven years spent building the systems that keep content teams running on time and on budget.</p>
+      <p class="role-line">Senior Manager, <strong>Content Operations</strong> — 7+ years of experience</p>
+      <p class="hero-bio">Senior Manager at Entri Software, managing the Coordinators and Associates within the team while overseeing educator management, P&L Management, quality assurance, and process improvement across learning categories. Seven years spent building the systems that keep content delivery structured, timely, and scalable.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="mailto:munees@entri.me">Email Munees</a>
+        <a class="btn btn-primary" href="mailto:munees971@gmail.com">Email Munees</a>
         <a class="btn btn-outline" href="https://www.linkedin.com/in/muneesofficial/" target="_blank" rel="noopener">View LinkedIn</a>
       </div>
     </div>
@@ -298,7 +357,7 @@
         <span class="stack-index">HR</span>
         <div>
           <div class="stack-name">Human Resource Management</div>
-          <div class="stack-desc">Team structuring, hiring, and performance oversight for content teams.</div>
+          <div class="stack-desc">Onboarding, engagement, and performance reviews for educators and content teams.</div>
         </div>
         <span class="stack-meta">PEOPLE</span>
       </div>
@@ -306,15 +365,15 @@
         <span class="stack-index">OPS</span>
         <div>
           <div class="stack-name">Operations Management</div>
-          <div class="stack-desc">Workflow design and day-to-day delivery across content operations.</div>
+          <div class="stack-desc">Structured workflows for content contribution, course execution, and delivery.</div>
         </div>
         <span class="stack-meta">PROCESS</span>
       </div>
       <div class="stack-row">
         <span class="stack-index">COST</span>
         <div>
-          <div class="stack-name">Cost Management</div>
-          <div class="stack-desc">Budgeting and cost control across content production.</div>
+          <div class="stack-name">Cost Planning and Management</div>
+          <div class="stack-desc">Remuneration negotiation, freelance expenses, and content-production budgeting.</div>
         </div>
         <span class="stack-meta">BUDGET</span>
       </div>
@@ -322,14 +381,14 @@
         <span class="stack-index">ACAD</span>
         <div>
           <div class="stack-name">Academics</div>
-          <div class="stack-desc">Academic content oversight and quality standards.</div>
+          <div class="stack-desc">Academic content oversight and quality standards across learning categories.</div>
         </div>
         <span class="stack-meta">CONTENT</span>
       </div>
       <div class="stack-row">
         <span class="stack-index">CNT</span>
         <div>
-          <div class="stack-name">Content Management</div>
+          <div class="stack-name">Content and QA Management</div>
           <div class="stack-desc">End-to-end content operations, from planning to publishing.</div>
         </div>
         <span class="stack-meta">CONTENT</span>
@@ -338,22 +397,80 @@
   </div>
 </section>
 
-<section id="experience">
+<section id="skills">
   <div class="wrap">
     <div class="section-head">
       <span class="section-num">02</span>
-      <h2>Current role</h2>
+      <h2>Skills &amp; recognition</h2>
       <div class="rule"></div>
     </div>
-    <div class="exp-card">
-      <div class="exp-top">
-        <div>
-          <div class="exp-title">Senior Manager, Content Operations</div>
-          <div class="exp-org">Entri Software</div>
-        </div>
-        <div class="exp-tenure">7 YEARS EXPERIENCE</div>
+
+    <div class="skills-block">
+      <div class="skills-label">Certifications</div>
+      <div class="tag-row">
+        <span class="tag">Microsoft Office</span>
+        <span class="tag">CCNA Trainee</span>
+        <span class="tag">Professional Web Designing &amp; Hosting Services</span>
       </div>
-      <p class="exp-body">Leads the content operations function at Entri Software, overseeing the people, processes, and budgets that keep content delivery on track — spanning HR, operations, cost management, and academic content.</p>
+    </div>
+
+    <div class="skills-block">
+      <div class="skills-label">Education</div>
+      <div class="tag-row">
+        <span class="tag">MBA in Human Resource Management</span>
+        <span class="tag">Bachelor of Computer Applications</span>
+        <span class="tag">Plus Two in Bioscience</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Experience</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="exp-list">
+
+      <div class="exp-card">
+        <div class="exp-top">
+          <div>
+            <div class="exp-title">Senior Manager</div>
+            <div class="exp-org">Entri</div>
+          </div>
+          <div class="exp-tenure">JAN 2019 – PRESENT · KOCHI</div>
+        </div>
+        <div class="exp-body">
+          Joined as Content Quality Expert, then promoted to Regional Academic Manager, and then Senior Manager in the Content Operations team.
+        </div>
+        <div class="tag-row" style="margin-top:16px;">
+          <span class="tag accent">Best Performer Award</span>
+          <span class="tag accent">Entripreneur of the Quarter</span>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-top">
+          <div>
+            <div class="exp-title">Junior Android Developer</div>
+            <div class="exp-org">Shuan Tech Private Limited</div>
+          </div>
+          <div class="exp-tenure">JAN 2018 – AUG 2018 · KERALA</div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-top">
+          <div>
+            <div class="exp-title">Process Associate</div>
+            <div class="exp-org">Stream Perfect Global Services India</div>
+          </div>
+          <div class="exp-tenure">JAN 2017 – JUL 2017 · KOCHI</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -361,27 +478,23 @@
 <section class="contact" id="contact">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num">03</span>
+      <span class="section-num">04</span>
       <h2>Get in touch</h2>
       <div class="rule"></div>
     </div>
-    <p class="contact-sub">Reach out directly by email or WhatsApp, or connect on LinkedIn and Instagram.</p>
+    <p class="contact-sub">Reach out by email, connect on LinkedIn, or check out job opportunities shared regularly on Instagram.</p>
     <div class="contact-grid">
-      <a class="contact-item" href="mailto:munees@entri.me">
+      <a class="contact-item" href="mailto:munees971@gmail.com">
         <span class="contact-label">Email</span>
-        <span class="contact-value">munees@entri.me</span>
-      </a>
-      <a class="contact-item" href="https://wa.me/917907016031" target="_blank" rel="noopener">
-        <span class="contact-label">WhatsApp</span>
-        <span class="contact-value">+91 79070 16031</span>
+        <span class="contact-value">Email Munees</span>
       </a>
       <a class="contact-item" href="https://www.linkedin.com/in/muneesofficial/" target="_blank" rel="noopener">
         <span class="contact-label">LinkedIn</span>
-        <span class="contact-value">/in/muneesofficial</span>
+        <span class="contact-value">View Profile</span>
       </a>
       <a class="contact-item" href="https://www.instagram.com/hiring_panikkar/" target="_blank" rel="noopener">
         <span class="contact-label">Instagram</span>
-        <span class="contact-value">@hiring_panikkar</span>
+        <span class="contact-value">Looking for opportunities?</span>
       </a>
     </div>
   </div>
